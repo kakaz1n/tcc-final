@@ -1,0 +1,11 @@
+
+ /* ion-content {    
+    --offset-bottom: auto!important;
+    --overflow: hidden;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }*/
+  .no-scroll {
+    --overflow: hidden;
+}
