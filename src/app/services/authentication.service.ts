@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { formatDate, NgLocaleLocalization } from '@angular/common';
 import { AlertController } from '@ionic/angular';
-import emailjs, {EmailJSResponseStatus} from 'emailjs-com';
+//import emailjs, {EmailJSResponseStatus} from 'emailjs-com';
+//import { Console } from "console";
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,7 @@ export class AuthenticateService {
             .ref('usuarios/' + res.user.uid + "/dados")
             .set({
               nome: value.nome,
+              rg: value.rg,
               telefone: value.telefone,
               estado: value.estado,
               cidade: value.cidade,
@@ -1015,8 +1017,23 @@ setProgressoInicial(id) {
         atual_resis: 0,
         atual_along: 0,
         atual_along_final:0,
-        etapa: 'Inicial'
+        etapa: 'A'
       })
+      let z = new Date();
+      let h = this.formatDate(z)
+      this.usuarioRef2 = this.db.object('usuarios/' + id + "/dados");
+      this.usuarioRef2.snapshotChanges().subscribe(res => {
+        const dados2 = res.payload.toJSON()
+        console.log(dados2)
+        let rg = dados2['rg']
+        rg = rg.replace(/\D/g,'')
+        console.log(rg)
+        this.db.database.ref('testes_realizados/' + rg + '/'+h)
+        .set({
+          nome: dados2['nome'],
+          dados:dados
+        })  
+      })  
   })
 }
 getTreino2(id, tipo) {
@@ -1195,15 +1212,15 @@ SetTreino(id, tipo) {
            checked  : "false"
         }
       })      
-      etapa = 'Inicial'
+      etapa = 'A'
         }
         if(etapa == 'Inicial')max_sem=2
         if(etapa == 'A')max_sem=2
-        else if(etapa == 'B') max_sem=3
-        else if(etapa == 'C') max_sem=3
-        else if(etapa == 'D') max_sem=4
-        else if(etapa == 'E') max_sem=4
-        else if(etapa == 'F') max_sem=4
+        else if(etapa == 'B') max_sem=2
+        else if(etapa == 'C') max_sem=2
+        else if(etapa == 'D') max_sem=2
+        else if(etapa == 'E') max_sem=2
+        else if(etapa == 'F') max_sem=2
       }
       
      

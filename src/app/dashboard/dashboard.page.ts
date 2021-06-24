@@ -106,6 +106,7 @@ export class DashboardPage implements OnInit {
         this.userEmail = res.email;
         this.uid = res.uid;
         console.log(this.uid)
+        //console.log(this.uid.replace(/\D/g,''))
         this.verifica_questionario()
         let b = this.authService.pegarProgresso(this.uid)
         console.log(b)
@@ -351,6 +352,7 @@ export class DashboardPage implements OnInit {
                                                     const data = res.payload.toJSON()
                                                     console.log(data)
                                                     if (data == null) this.authService.setProgressoInicial(this.uid)
+                                                    else if(data['semana'] == 1 && data['etapa'] == 'A' && data['atual_aero'] == 0 && data['atual_resis'] == 0 && data['atual_along'] == 0 && data['atual_along_final'] == 0) this.authService.setProgressoInicial(this.uid)    
                                                     else {
                                                       this.semana = data['semana']
                                                       this.atual_aero = data['atual_aero']

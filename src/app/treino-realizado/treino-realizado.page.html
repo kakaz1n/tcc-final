@@ -18,14 +18,14 @@
 <ion-content fullscreen="true" color="primary" class="no-scroll" style="display: block;text-align: center;">
   <h3>Semana {{this.semana}}</h3>
   <h4>Data {{this.data2}}</h4>
-  <ion-button style="border-radius: 36.5pt; width: 80%;height: 80px;text-align: center;margin:5%;font-size: x-large;"
+  <ion-button     style="border-radius: 36.5pt; width: 80%;height: 80px;text-align: center;margin:5%; font-size:larger"
     [color]="cor_along"  [routerLink]="['/treino/','Alongamento',semana,data]" [disabled]="false">
-    Alongamento<br>
+    Alongamento Inicial<br>
     ({{this.atual_along}}/{{this.max_along}})</ion-button>
     
   <ion-button style="border-radius: 36.5pt; width: 80%;height: 80px;text-align: center;margin:5%;font-size: xx-large;"
   [color]="cor_aero"  [routerLink]="['/treino/','Aerobico',semana,data]" [disabled]="false">
-  Aeróbica<br>
+  Aeróbio<br>
   ({{this.atual_aero}}/{{this.max_aero}})</ion-button>
   <ion-button style="border-radius: 36.5pt; width: 80%;height: 80px;text-align: center;margin:5%;font-size: xx-large;"
     [color]="cor_resis"  [routerLink]="['/treino/','Resistido',semana,data]" [disabled]="false">

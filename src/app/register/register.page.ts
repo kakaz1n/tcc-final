@@ -37,6 +37,7 @@ export class RegisterPage implements OnInit {
   public estado_atual:any;
   public nome:any;
   url:any;
+  public rg:any;
  validations_form: FormGroup;
   errorMessage: string = '';
   successMessage: string = '';
@@ -126,6 +127,9 @@ export class RegisterPage implements OnInit {
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])),
+      rg: ['',Validators.compose([
+        Validators.required,
+      ])],
       telefone: ['',Validators.compose([
         Validators.required,
         Validators.maxLength(15)

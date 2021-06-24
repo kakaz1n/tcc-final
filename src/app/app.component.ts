@@ -87,7 +87,12 @@ export class AppComponent {
         icon:"barbell"
       },
       {
-        title : "Treinos Realizados",
+        title : "Intensidade de Treinamento",
+        url   : "/intensidade",
+        icon:"speedometer"
+      },
+      {
+        title : "Treinos Concluídos",
         url   : "/treinos-realizados",
         icon: "calendar"
       },

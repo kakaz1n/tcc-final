@@ -172,6 +172,10 @@ const routes: Routes = [
     path: 'anexo',
     loadChildren: () => import('./anexo/anexo.module').then( m => m.AnexoPageModule)
   },
+  {
+    path: 'intensidade',
+    loadChildren: () => import('./intensidade/intensidade.module').then( m => m.IntensidadePageModule)
+  },
 ];
 
 @NgModule({
